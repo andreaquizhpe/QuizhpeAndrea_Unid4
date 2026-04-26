@@ -14,6 +14,8 @@ public class PruebaAudioVisual {
         // Mostrar los detalles de cada contenido audiovisual
         for (ContenidoAudiovisual contenido : contenidos) {
             contenido.mostrarDetalles();
+            
+            //prueba de push
         }
     }
 }
