@@ -26,6 +26,9 @@ public class Actor {
 		this.edad = edad;
 	}
 	
+	public void mostrarInformacion() {
+		System.out.println("Informacion del actor: " + nombre + edad);
+	}
 	
 
 }
