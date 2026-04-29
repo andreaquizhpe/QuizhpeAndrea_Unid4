@@ -29,6 +29,7 @@ public class SerieDeTV extends ContenidoAudiovisual {
         mostrarTemporada();
         System.out.println();
     }
+    
     public void agregarTemporada(String nombre, int numero, int episodios) {
         temporadas.add(new Temporada(nombre, numero, episodios));
     }

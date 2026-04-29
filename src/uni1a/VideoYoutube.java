@@ -52,6 +52,9 @@ public class VideoYoutube extends ContenidoAudiovisual {
         System.out.println("Título: " + getTitulo());
         System.out.println("Duración en minutos: " + getDuracionEnMinutos());
         System.out.println("Género: " + getGenero());
+        System.out.println("Anfitrion: " + getAnfitrion());
+        System.out.println("Tema: " + getTema());
+        System.out.println("Suscriptores: " + getNumeroSuscriptores());
         System.out.println();
 		
 	}

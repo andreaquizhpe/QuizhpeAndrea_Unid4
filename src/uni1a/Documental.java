@@ -34,7 +34,9 @@ public class Documental extends ContenidoAudiovisual {
         System.out.println("Título: " + getTitulo());
         System.out.println("Duración en minutos: " + getDuracionEnMinutos());
         System.out.println("Género: " + getGenero());
-        System.out.println("Tema: " + this.tema);
+        System.out.println("Tema: " + getTema());
+        System.out.println("Investigador: ");
+        mostrarInvestigadores();
         System.out.println();
     }
     
@@ -43,7 +45,9 @@ public class Documental extends ContenidoAudiovisual {
     }
     public void mostrarInvestigadores() {
         for (Investigador i : investigador) {
-            System.out.println(i.getNombre());
+            System.out.print("Nombre: "+i.getNombre());
+            System.out.print("Edad: "+i.getEdad());
+            System.out.print(" Experiencia: "+i.getAniosExperiencia());
         }
     }
 
