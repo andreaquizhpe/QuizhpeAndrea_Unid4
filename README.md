@@ -45,14 +45,14 @@ Permite modelar diferentes tipos de contenido como películas, series de TV, doc
 - Clone URI
 - Repositorio Original
 https://github.com/CS-Programacion-Orientada-Objetos/poo_unidad1.git
-Repositorio de la Estudiante
+- Repositorio de la Estudiante
 https://github.com/andreaquizhpe/QuizhpeAndrea_Unidad2.git
-Dale Next en todo (déjalo por defecto)
-En “Import projects” elige:
-Import existing Eclipse projects
-Finish
+- Dale Next en todo (déjalo por defecto)
+- En “Import projects” elige:
+- Import existing Eclipse projects
+- Finish
 
 POR COMANDOS:
-git clone https://github.com/CS-Programacion-Orientada-Objetos/poo_unidad1.git
-File → Import → Existing Projects into Workspace
+- Escribe en la terminal: git clone https://github.com/CS-Programacion-Orientada-Objetos/poo_unidad1.git
+- Seleccione la carptea destino: File → Import → Existing Projects into Workspace
 
