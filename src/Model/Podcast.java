@@ -1,69 +1,62 @@
-package uni1a;
+package Model;
 
-public class VideoYoutube extends ContenidoAudiovisual {
+public class Podcast extends ContenidoAudiovisual {
+	
 	private String tema;
 	private String anfitrion;
-	private int numeroSuscriptores;
-	
-	
-	public VideoYoutube(String titulo, int duracionEnMinutos, String genero, String tema, String anfitrion, int numeroSuscritores) {
-		super(titulo, duracionEnMinutos, genero);
-		this.anfitrion = anfitrion;
-		this.tema = tema;
-		this.numeroSuscriptores = numeroSuscritores;
-		// TODO Auto-generated constructor stub
-	}
+	private int numeroEpisodios;
 
+	public Podcast(String titulo, int duracionEnMinutos, String genero, String tema, String anfitrion, int numeroEpisodios) {
+		super(titulo, duracionEnMinutos, genero);
+		// TODO Auto-generated constructor stub
+		this.anfitrion = anfitrion;
+		this.numeroEpisodios = numeroEpisodios;
+		this.tema = tema;
+	}
 
 	public String getTema() {
 		return tema;
 	}
 
-
 	public void setTema(String tema) {
 		this.tema = tema;
 	}
-
 
 	public String getAnfitrion() {
 		return anfitrion;
 	}
 
-
 	public void setAnfitrion(String anfitrion) {
 		this.anfitrion = anfitrion;
 	}
 
-
-	public int getNumeroSuscriptores() {
-		return numeroSuscriptores;
+	public int getNumeroEpisodios() {
+		return numeroEpisodios;
 	}
 
-
-	public void setNumeroSuscriptores(int numeroSuscriptores) {
-		this.numeroSuscriptores = numeroSuscriptores;
+	public void setNumeroEpisodios(int numeroEpisodios) {
+		this.numeroEpisodios = numeroEpisodios;
 	}
-	
-	//Añadir el metodo mostrarDetalles
+
 	@Override
 	public void mostrarDetalles() {
-		System.out.println("Detalles del Video de Youtube:");
+		System.out.println("Detalles del Podcast:");
         System.out.println("ID: " + getId());
         System.out.println("Título: " + getTitulo());
         System.out.println("Duración en minutos: " + getDuracionEnMinutos());
         System.out.println("Género: " + getGenero());
         System.out.println("Anfitrion: " + getAnfitrion());
         System.out.println("Tema: " + getTema());
-        System.out.println("Suscriptores: " + getNumeroSuscriptores());
+        System.out.println("Episodios: " + getNumeroEpisodios());
         System.out.println();
 		
 	}
-	public void aumentarSuscriptores(int cantidad) {
-	    numeroSuscriptores += cantidad;
+	public void cambiarTema(String nuevoTema) {
+	    this.tema = nuevoTema;
+	    System.out.println("El tema del podcast fue actualizado.");
 	}
 
-
-		
-	
-
+	public void mostrarTema() {
+	    System.out.println("Tema del podcast: " + tema);
+	}
 }

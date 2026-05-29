@@ -1,7 +1,7 @@
 /**
  * Class Documental
  */
-package uni1a;
+package Model;
 
 import java.util.ArrayList;
 import java.util.List;

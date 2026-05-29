@@ -1,4 +1,4 @@
-package uni1a;
+package Model;
 
 public class Investigador {
 	private String nombre;

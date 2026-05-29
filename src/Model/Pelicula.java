@@ -1,7 +1,7 @@
 /**
  * Class Pelicula
  */
-package uni1a;
+package Model;
 
 import java.util.*;
 
