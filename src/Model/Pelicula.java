@@ -5,8 +5,10 @@ package Model;
 
 import java.util.*;
 
+import Interface.ExportableCSV;
+
 // Subclase Pelicula que extiende de ContenidoAudiovisual
-public class Pelicula extends ContenidoAudiovisual {
+public class Pelicula extends ContenidoAudiovisual implements ExportableCSV  {
     private String estudio;
     
     //Relacion con Pelicula por asociacion
@@ -16,6 +18,14 @@ public class Pelicula extends ContenidoAudiovisual {
         super(titulo, duracionEnMinutos, genero);
         this.estudio = estudio;
         this.actores = new ArrayList<Actor>();
+    }
+    @Override
+    public String convertirCSV() {
+
+        return getTitulo() + "," +
+               getDuracionEnMinutos() + "," +
+               getGenero() + "," +
+               getEstudio();
     }
 
     public String getEstudio() {

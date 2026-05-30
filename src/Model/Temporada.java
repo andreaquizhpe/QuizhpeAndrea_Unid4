@@ -1,11 +1,11 @@
 package Model;
 
 public class Temporada {
-	private String nombreTemporada;
+	public String nombreTemporada;
 	private int numero;
 	private int episodios;
 	
-	Temporada(String nombreTemporada, int numero, int episodio) {
+	public Temporada(String nombreTemporada, int numero, int episodio) {
 		this.nombreTemporada = nombreTemporada;
 		this.numero = numero;
 		this.episodios= episodio;

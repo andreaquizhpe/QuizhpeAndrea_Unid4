@@ -6,8 +6,10 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import Interface.ExportableCSV;
+
 // Subclase Documental que extiende de ContenidoAudiovisual
-public class Documental extends ContenidoAudiovisual {
+public class Documental extends ContenidoAudiovisual implements ExportableCSV {
     private String tema;
     
   //relacion con temporada por agregacion
@@ -17,6 +19,14 @@ public class Documental extends ContenidoAudiovisual {
         super(titulo, duracionEnMinutos, genero);
         this.tema = tema;
         this.investigador = new ArrayList<Investigador>();
+    }
+    @Override
+    public String convertirCSV() {
+
+        return getTitulo() + "," +
+               getDuracionEnMinutos() + "," +
+               getGenero() + "," +
+               getTema();
     }
 
     public String getTema() {
@@ -50,5 +60,11 @@ public class Documental extends ContenidoAudiovisual {
             System.out.print(" Experiencia: "+i.getAniosExperiencia());
         }
     }
+	public List<Investigador> getInvestigador() {
+		return investigador;
+	}
+	public void setInvestigador(List<Investigador> investigador) {
+		this.investigador = investigador;
+	}
 
 }

@@ -1,65 +1,40 @@
-
 package Controller;
 
 import java.util.ArrayList;
 
 import Exception.ExceptionContenido;
+import Interface.Persistencia;
 import Model.Actor;
-import Model.Documental;
-import Model.Investigador;
 import Model.Pelicula;
-import Model.Podcast;
-import Model.SerieDeTV;
 import util.ArchivoManager;
 
-public class ContenidoController {
+public class ControllerPelicula implements Persistencia{
 
     private ArrayList<Pelicula> peliculas;
-    private ArrayList<SerieDeTV> series;
-    private ArrayList<Documental> documentales;
-    private ArrayList<Podcast> podcasts;
+    private ArrayList<Actor> actores;
 
-    public ContenidoController() {
+
+    public ControllerPelicula() {
 
         peliculas = new ArrayList<>();
-        series = new ArrayList<>();
-        documentales = new ArrayList<>();
-        podcasts = new ArrayList<>();
+        actores = new ArrayList<Actor>();
+
     }
 
-    public void iniciar() {
+    // ==========================
+    // CREAR PELICULA
+    // ==========================
 
-        // Crear contenidos
+    public void crearPelicula(String titulo, int duracion, String genero, String estudio) {
+
         Pelicula pelicula = new Pelicula(
-                "Avatar",
-                125,
-                "Accion",
-                "20th Century Studios"
+                titulo,
+                duracion,
+                genero,
+                estudio
         );
 
-        SerieDeTV serie = new SerieDeTV(
-                "Game of Thrones",
-                60,
-                "Fantasy"
-        );
-
-        Documental documental = new Documental(
-                "Cosmos",
-                45,
-                "Science",
-                "Astronomy"
-        );
-
-        Podcast podcast = new Podcast(
-                "Tech Talk",
-                30,
-                "Tecnologia",
-                "Innovacion",
-                "Juan Perez",
-                20
-        );
-
-        // Asociación Actor - Pelicula
+        // Actores quemados
         Actor a1 = new Actor(
                 "Sam Worthington",
                 45
@@ -73,80 +48,83 @@ public class ContenidoController {
         pelicula.agregarActor(a1);
         pelicula.agregarActor(a2);
 
-        // Composición Serie - Temporada
-        serie.agregarTemporada(
-                "Temporada 1",
-                1,
-                10
-        );
-
-        serie.agregarTemporada(
-                "Temporada 2",
-                2,
-                8
-        );
-
-        // Agregación Documental - Investigador
-        Investigador i1 = new Investigador(
-                "Carl Sagan",
-                60,
-                30
-        );
-
-        documental.agregarInvestigador(i1);
-
-        // Guardar en listas
+        actores.add(a1);
+        actores.add(a2);
+        
         peliculas.add(pelicula);
-        series.add(serie);
-        documentales.add(documental);
-        podcasts.add(podcast);
 
-        System.out.println("Contenidos creados.");
+        System.out.println(
+                "Película creada correctamente."
+        );
     }
+
+  
+
+    // MOSTRAR
+
 
     public void mostrarContenidos()
             throws ExceptionContenido {
 
-        if(peliculas.isEmpty() &&
-           series.isEmpty() &&
-           documentales.isEmpty() &&
-           podcasts.isEmpty()) {
+        if (peliculas.isEmpty()){
 
             throw new ExceptionContenido(
                     "No existen contenidos registrados."
             );
         }
 
-        for(Pelicula p : peliculas) {
+        for (Pelicula p : peliculas) {
             p.mostrarDetalles();
-        }
-
-        for(SerieDeTV s : series) {
-            s.mostrarDetalles();
-        }
-
-        for(Documental d : documentales) {
-            d.mostrarDetalles();
-        }
-
-        for(Podcast p : podcasts) {
-            p.mostrarDetalles();
+            System.out.println();
         }
     }
 
+
+    // ARCHIVOS
+
+    @Override
     public void guardarDatos() {
 
-        ArchivoManager.guardarPeliculas(
-                "peliculas.csv",
-                peliculas
+        ArchivoManager.guardarPeliculas("Archivos/peliculas.csv", peliculas);
+        ArchivoManager.guardarActores("Archivos/actores.csv", actores);
+
+        System.out.println(
+                "Datos guardados."
+        );
+    }
+    
+    @Override
+    public void cargarDatos() {
+
+        peliculas = ArchivoManager.leerPeliculas("Archivos/peliculas.csv");
+        
+        actores = ArchivoManager.leerActores("Archivos/actores.csv");
+        
+
+        System.out.println(
+                "Datos cargados."
         );
     }
 
-    public void cargarDatos() {
+    // GETTERS Y SETTERS
 
-        peliculas =
-                ArchivoManager.leerPeliculas(
-                        "peliculas.csv"
-                );
+    public ArrayList<Pelicula> getPeliculas() {
+        return peliculas;
     }
+
+    public void setPeliculas(
+            ArrayList<Pelicula> peliculas) {
+
+        this.peliculas = peliculas;
+    }
+
+	public ArrayList<Actor> getActores() {
+		return actores;
+	}
+
+	public void setActores(ArrayList<Actor> actores) {
+		this.actores = actores;
+	}
+
+   
 }

@@ -1,6 +1,8 @@
 package Model;
 
-public class Podcast extends ContenidoAudiovisual {
+import Interface.ExportableCSV;
+
+public class Podcast extends ContenidoAudiovisual implements ExportableCSV {
 	
 	private String tema;
 	private String anfitrion;
@@ -12,6 +14,16 @@ public class Podcast extends ContenidoAudiovisual {
 		this.anfitrion = anfitrion;
 		this.numeroEpisodios = numeroEpisodios;
 		this.tema = tema;
+	}
+	@Override
+	public String convertirCSV() {
+
+	    return getTitulo() + "," +
+	           getDuracionEnMinutos() + "," +
+	           getGenero() + "," +
+	           getTema() + "," +
+	           getAnfitrion() + "," +
+	           getNumeroEpisodios();
 	}
 
 	public String getTema() {

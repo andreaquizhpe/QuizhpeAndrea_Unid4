@@ -1,5 +1,5 @@
 package Principal;
-import Controller.ContenidoController;
+import Controller.ControllerPelicula;
 import View.ViewMenu;
 
 
